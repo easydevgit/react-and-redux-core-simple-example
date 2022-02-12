@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import Button from "@mui/material/Button"
+import Container from "@mui/material/Container"
+import { useEffect } from "react"
+import { makeStyles } from "@mui/styles"
+import Header from "./components/Header"
 
 function App() {
+  const classes = useStyles()
+  useEffect(() => {})
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Container maxWidth="sm">
+      <Header></Header>
+      <div className={classes.buttonWrapper}>
+        <Button variant="contained">Get Starships</Button>
+        <Button variant="contained">Get Planets</Button>
+      </div>
+    </Container>
+  )
 }
 
-export default App;
+const useStyles = makeStyles({
+  buttonWrapper: {
+    display: "flex",
+    justifyContent: "space-around",
+  },
+})
+
+export default App
